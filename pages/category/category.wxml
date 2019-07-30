@@ -1,0 +1,8 @@
+<view wx:key wx:for="{{services}}" wx:for-index='index' wx:for-item='service'>
+  <view data-id='{{service.id}}' bindtap='goToShow' class="card-product">
+    <view class="card-product-infos">
+      <view class='h2'>{{service.title}}</view>
+      <view class='p'>{{service.description}}</view>
+    </view>
+  </view>
+</view>
