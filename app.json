@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/category/category",
     "pages/create/create",
     "pages/profiles/profile"
   ],
@@ -13,25 +14,31 @@
   "tabBar": {
     "backgroundColor": "#fff",
     "selectedColor": "#333",
-    "color": "#999",
+    "color": "#bbb",
     "list": [
       {
         "pagePath": "pages/index/index",
-        "iconPath": "images/nav-home.png",
+        "iconPath": "images/nav-home-default.png",
         "selectedIconPath": "images/nav-home.png",
         "text": "Home"
       },
       {
+        "pagePath": "pages/index/index",
+        "iconPath": "images/nav-heart-default.png",
+        "selectedIconPath": "images/nav-heart.png",
+        "text": "Bookmarks"
+      },
+      {
         "pagePath": "pages/create/create",
-        "iconPath": "images/nav-add.png",
+        "iconPath": "images/nav-add-default.png",
         "selectedIconPath": "images/nav-add.png",
-        "text": "Post"
+        "text": "Create a class"
       },
       {
         "pagePath": "pages/profiles/profile",
-        "iconPath": "images/nav-user.png",
+        "iconPath": "images/nav-user-default.png",
         "selectedIconPath": "images/nav-user.png",
-        "text": "Profile"
+        "text": "My Profile"
       }
     ]
   },
