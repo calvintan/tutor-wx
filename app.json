@@ -11,26 +11,26 @@
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
-    "backgroundColor": "#FFFFFE",
-    "selectedColor": "#D03232",
-    "color": "#131313",
+    "backgroundColor": "#fff",
+    "selectedColor": "#333",
+    "color": "#999",
     "list": [
       {
         "pagePath": "pages/index/index",
-        "iconPath": "images/home.png",
-        "selectedIconPath": "images/home.png",
+        "iconPath": "images/nav-home.png",
+        "selectedIconPath": "images/nav-home.png",
         "text": "Home"
       },
       {
         "pagePath": "pages/create/create",
-        "iconPath": "images/post.png",
-        "selectedIconPath": "images/post.png",
+        "iconPath": "images/nav-add.png",
+        "selectedIconPath": "images/nav-add.png",
         "text": "Post"
       },
       {
         "pagePath": "pages/profiles/profile",
-        "iconPath": "images/profile.png",
-        "selectedIconPath": "images/profile.png",
+        "iconPath": "images/nav-user.png",
+        "selectedIconPath": "images/nav-user.png",
         "text": "Profile"
       }
     ]
