@@ -3,6 +3,7 @@
     "pages/index/index",
     "pages/category/category",
     "pages/create/create",
+    "pages/show/show",
     "pages/profiles/profile"
   ],
   "window": {
