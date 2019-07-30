@@ -1,51 +1,55 @@
 /**index.wxss**/
-.container {
-  background-image: url('https://i.ytimg.com/vi/d-zKJCKsoWw/maxresdefault.jpg');
-  background-size: cover;
+.banner {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.banner-image {
+  width: 100%;
+  max-height: 180px;
+  object-fit: cover;
+}
+
+.banner-intro {
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: bold;
+  font-size: 20px;
+  width: 100%;
+  text-align: center;
 }
 
 .intro {
-  color: white;
+  color: #fff;
   text-align: center;
+}
+
+.row {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px; 
 }
 
 .card {
-  display: flex;
-  justify-content: space-around;
-  background-color: #FFF;
+  background: #fff;
+  width: calc((100% / 2) - 20px);
+  border-radius: 4px;
+  box-shadow: 0 2px 10px rgba(0,0,0,.10);
 }
 
-.card-category {
-  padding-top: 5vh;
-  border-color: black;
-}
-
-image {
-  width: 40vw;
-  height: 20vh;
+.card-image {
+  width: 100%;
+  height: 100px;
   object-fit: cover;
-  border-radius: 5px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
 }
 
-.together {
-  box-shadow: 0 2px 10px rgba(0,0,0,.1);
-  border-radius: 5px;
-}
-
-.name {
+.card-name {
   text-align: center;
+  padding: 5px 0 10px 0;
+  font-size: 14px;
 }
-
-
-/* .chinese {
-  background-image: url('https://learnmandarinmalaysia.com/wp-content/uploads/2013/01/Learn-Mandarin-Malaysia-Chinese-Lessons.jpg'); 
-}
-
-.english {
-  background-image: url('https://www.colourbox.com/preview/30061942-colorful-english-word-cube-on-white-paper-background-english-language-learning-concept.jpg')
-}
-
-.math {
-  background-image: url('https://previews.123rf.com/images/pdreams/pdreams1410/pdreams141000027/32604573-blue-handmade-numbers-math-background-illustration.jpg');
-}
- */
