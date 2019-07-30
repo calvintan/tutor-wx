@@ -1,0 +1,32 @@
+<!--pages/create/create.wxml-->
+<view>Create a class</view>
+<form bindsubmit="formSubmit" bindreset="formReset">
+  <view class="section">
+    <view class="section__title">title</view>
+    <input name="title" placeholder="please input title" />
+  </view>
+  <view class="section">
+    <view class="section__title">description</view>
+    <input name="description" placeholder="please input description" />
+  </view>
+    <view class="section">
+    <view class="section__title">difficulty</view>
+    <input name="difficulty" placeholder="please input difficulty" />
+  </view>
+  <view class="section">
+    <view class="section__title">date</view>
+    <input name="date" placeholder="please input date" />
+  </view>
+  <view class="section">
+    <view class="section__title">time</view>
+    <input name="time" placeholder="please input time" />
+  </view>
+    <view class="section">
+    <view class="section__title">location</view>
+    <input name="location" placeholder="please input location" />
+  </view>
+  <view class="btn-area">
+    <button formType="submit">Submit</button>
+    <button formType="reset">Reset</button>
+  </view>
+</form>
