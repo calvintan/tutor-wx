@@ -1,13 +1,43 @@
 <!--index.wxml-->
 <view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+  <view class="intro">
+    Welcome to tutor App!
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+</view>
+
+<view class="category">
+  <view class="card">
+    <view class="card-category"> 
+      <view class='together'>
+       <image src="/images/chinese.jpg"></image>
+       <view class="name">Chinese</view>
+      </view>
+    </view>
+    <view class="card-category">
+      <view class='together'>
+        <image src="/images/english.jpg"></image>
+        <view class="name">English</view>
+      </view>
+    </view>
   </view>
+
+  <view class="card">
+    <view class="card-category">
+      <view class='together'>
+        <image src="/images/math.jpg"></image>
+        <view class='name'>Math</view>
+      </view>
+    </view>
+    <view class="card-category">
+      <view class="together">
+        <image src="/images/code.jpg"></image>
+        <view class='name'>Coding</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- <view class="card">
+    <view class="card-category history">History</view>
+    <view class="card-category science">Science</view>
+  </view> -->
 </view>

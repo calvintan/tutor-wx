@@ -1,21 +1,51 @@
 /**index.wxss**/
-.userinfo {
+.container {
+  background-image: url('https://i.ytimg.com/vi/d-zKJCKsoWw/maxresdefault.jpg');
+  background-size: cover;
+}
+
+.intro {
+  color: white;
+  text-align: center;
+}
+
+.card {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: space-around;
+  background-color: #FFF;
 }
 
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+.card-category {
+  padding-top: 5vh;
+  border-color: black;
 }
 
-.userinfo-nickname {
-  color: #aaa;
+image {
+  width: 40vw;
+  height: 20vh;
+  object-fit: cover;
+  border-radius: 5px;
 }
 
-.usermotto {
-  margin-top: 200px;
+.together {
+  box-shadow: 0 2px 10px rgba(0,0,0,.1);
+  border-radius: 5px;
 }
+
+.name {
+  text-align: center;
+}
+
+
+/* .chinese {
+  background-image: url('https://learnmandarinmalaysia.com/wp-content/uploads/2013/01/Learn-Mandarin-Malaysia-Chinese-Lessons.jpg'); 
+}
+
+.english {
+  background-image: url('https://www.colourbox.com/preview/30061942-colorful-english-word-cube-on-white-paper-background-english-language-learning-concept.jpg')
+}
+
+.math {
+  background-image: url('https://previews.123rf.com/images/pdreams/pdreams1410/pdreams141000027/32604573-blue-handmade-numbers-math-background-illustration.jpg');
+}
+ */
