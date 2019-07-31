@@ -51,9 +51,11 @@ Page({
   //     hasUserInfo: true
   //   })
   // }
-  goToCategory: function () {
+  goToCategory: function (e) {
+    let cat = e.currentTarget.dataset.category
+    console.log(e)
     wx.navigateTo({
-      url: `/pages/category/category`,
+      url: `/pages/category/category?cat=${cat}`
     })
   }
 })
