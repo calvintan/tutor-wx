@@ -51,4 +51,9 @@ Page({
   //     hasUserInfo: true
   //   })
   // }
+  goToCategory: function () {
+    wx.navigateTo({
+      url: `/pages/category/category`,
+    })
+  }
 })
