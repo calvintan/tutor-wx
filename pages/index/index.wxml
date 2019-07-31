@@ -6,33 +6,33 @@
 
 <view class="category">
   <view class="row">
-    <view class="card" bindtap='goToCategory'> 
+    <view class="card" bindtap='goToCategory' data-category='chinese'> 
       <image class="card-image" src="/images/1.jpg"></image>
       <view class="card-name">Chinese</view>
     </view>
-    <view class="card">
+    <view class="card" bindtap='goToCategory' data-category='english'>
       <image class="card-image" src="/images/2.jpg"></image>
       <view class="card-name">English</view>
     </view>
   </view>
 
   <view class="row">
-    <view class="card">
+    <view class="card" bindtap='goToCategory' data-category='math'>
       <image class="card-image" src="/images/3.jpg"></image>
       <view class='card-name'>Math</view>
     </view>
-    <view class="card">
+    <view class="card" bindtap='goToCategory' data-category='coding'>
       <image class="card-image" src="/images/4.jpg"></image>
       <view class='card-name'>Coding</view>
     </view>
   </view>
 
   <view class="row">
-    <view class="card"> 
+    <view class="card" bindtap='goToCategory' data-category='korean'> 
       <image class="card-image" src="/images/5.jpg"></image>
       <view class="card-name">Korean</view>
     </view>
-    <view class="card">
+    <view class="card" bindtap='goToCategory' data-category='science'>
       <image class="card-image" src="/images/6.jpg"></image>
       <view class="card-name">Science</view>
     </view>

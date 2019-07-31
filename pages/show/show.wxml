@@ -5,4 +5,4 @@
     <view class='p'>{{service.time}}</view>
     <view class='p'>{{service.location}}</view>
   </view>
-</view> 
+</view>

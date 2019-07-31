@@ -12,10 +12,11 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
+    console.log(options)
     let page = this;
 
     wx.request({
-      url: "http://localhost:3000/api/v1/services",
+      url: `http://localhost:3000/api/v1/services/?category=${options.cat}`,
       success: function(res) {
         console.log(res.data);
         const services = res.data;
