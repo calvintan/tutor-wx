@@ -69,7 +69,7 @@ Page({
     let story = { name: story_name, text: story_text }
     console.log(story)
     wx.request({
-      url: 'http://localhost:3000/api/v1/stories',
+      url: 'http://localhost:3000/api/v1/stories/new',
       method: "POST",
       data: story,
       success() {
