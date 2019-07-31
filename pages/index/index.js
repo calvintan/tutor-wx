@@ -50,5 +50,12 @@ Page({
   //     userInfo: e.detail.userInfo,
   //     hasUserInfo: true
   //   })
-  // }
+  // }s
+  goToCategory: function (e) {
+    let cat = e.currentTarget.dataset.category
+    console.log(e)
+    wx.navigateTo({
+      url: `/pages/category/category?cat=${cat}`
+    })
+  }
 })
