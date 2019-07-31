@@ -15,7 +15,7 @@ Page({
     let page = this
     let id = options.id
     wx.request({
-      url: `http://localhost:3000/api/v1/services/${id}`,
+      url: `https://tutor-app-mp.herokuapp.com/api/v1/services/${id}`,
       success: function (res) {
         console.log(res.data);
         const service = res.data;

@@ -1,7 +1,7 @@
 //app.js
 App({
   onLaunch: function () {
-    const host = 'http://localhost:3000/'
+    const host = 'https://tutor-app-mp.herokuapp.com/'
     console.log('beginning login')
     wx.login({
       success: (res) => {
