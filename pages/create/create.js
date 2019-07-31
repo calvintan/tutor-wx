@@ -126,7 +126,7 @@ Page({
     let event = { name: title, description: description, location: location, difficulty: difficulty, time: new Date(this.data.year, this.data.month - 1, this.data.day, Number(e.detail.value.time_start)) }
     console.log("event",event)
     wx.request({
-      url: 'http://localhost:3000/api/v1/stories',
+      url: 'http://localhost:3000/api/v1/stories/new',
       method: "POST",
       data: event,
       success() {
