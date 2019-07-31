@@ -1,4 +1,4 @@
 /**app.wxss**/
 page {
-  background: #fafafa;
+  background: #f8f8f8;
 }

@@ -6,7 +6,7 @@
 
 <view class="category">
   <view class="row">
-    <view class="card"> 
+    <view class="card" bindtap='goToCategory'> 
       <image class="card-image" src="/images/1.jpg"></image>
       <view class="card-name">Chinese</view>
     </view>
