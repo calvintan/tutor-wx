@@ -1,8 +1,10 @@
 <!--index.wxml-->
 <view class="banner">
-  <text class="banner-intro">Welcome to Tutor App</text>
+  <text class="banner-intro">Welcome to TeamUp!</text>
   <image class="banner-image" src="/images/home-banner.jpg"></image>
 </view>
+
+<text class="h1">Pick a class from our range of topics below</text>
 
 <view class="category">
   <view class="row">
