@@ -124,11 +124,10 @@ Page({
       })
     }
     let event = { title: title, user_id: 6 }
-    // description: description, location: location, difficulty: difficulty, time: new Date(this.data.year, this.data.month - 1, this.data.day, Number(e.detail.value.time_start)), 
+    // description: description, location: location, difficulty: difficulty, time: new Date(this.data.year, this.data.month - 1, this.data.day, Number(e.detail.value.time_start)),
     console.log("event",event)
     wx.request({
       url: 'https://tutor-app-mp.herokuapp.com/api/v1/services/',
-      // url: 'http://localhost:3000/api/v1/services',
       method: "POST",
       data: event,
       success() {

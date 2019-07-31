@@ -9,6 +9,11 @@
     <view class="section__title">Description</view>
     <textarea name="description"></textarea>
   </view>
+  <view class="section">
+    <view class="section__title">Category</view>
+    <!-- <input name="description" /> -->
+    <textarea name="description"></textarea>
+  </view>
     <view class="section">
     <view class="section__title">Difficulty</view>
     <radio-group class="radio-group" bindchange="radioChange" name="difficulty">

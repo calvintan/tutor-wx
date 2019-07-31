@@ -1,8 +1,18 @@
 <view class="banner">
-  <view class="container">
-    <view class='h1'>{{service.title}}</view>
-    <view class='p'>{{service.description}}</view>
-    <view class='p'>{{service.time}}</view>
-    <view class='p'>{{service.location}}</view>
-  </view>
+  <text class="banner-intro">{{service.title}}</text>
+  <image class="banner-image" src="/images/home-banner.jpg"></image>
 </view>
+
+<view class="container">
+  <view class="h2">Class Outline</view>
+  <view class='p'>{{service.description}}</view>
+
+  <view class="h2">Date and Time</view>
+  <view class='p'>{{service.time}}</view>
+
+  <view class="h2">Location</view>
+  <view class='p'>{{service.location}}</view>
+</view>
+
+
+

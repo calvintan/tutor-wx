@@ -1,0 +1,37 @@
+.banner {
+  position: relative;
+}
+
+.banner-image {
+  width: 100%;
+  max-height: 180px;
+  object-fit: cover;
+}
+
+.banner-intro {
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: bold;
+  font-size: 20px;
+  width: 100%;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.container {
+  padding: 20px;
+  background: #fff;
+  font-size: 14px;
+}
+
+.h2 {
+  font-weight: bold;
+  margin: 0 0 4px;
+}
+
+.p {
+  margin-bottom: 20px;
+}
