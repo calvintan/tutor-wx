@@ -23,6 +23,7 @@ Page({
 
         // Update local data
         page.setData({
+          category: options.cat,
           services: services
         });
       }
