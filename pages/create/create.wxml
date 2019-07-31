@@ -12,7 +12,7 @@
   <view class="section">
     <view class="section__title">Category</view>
     <!-- <input name="description" /> -->
-    <textarea name="description"></textarea>
+    <input name="category"></input>
   </view>
     <view class="section">
     <view class="section__title">Difficulty</view>

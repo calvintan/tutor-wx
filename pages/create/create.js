@@ -104,6 +104,7 @@ Page({
     console.log(e)
     let title = e.detail.value.title
     let description = e.detail.value.description
+    let category = e.detail.value.category
     let difficulty = e.detail.value.difficulty
     let location = e.detail.value.location
     let saved_date = [this.data.year, this.data.month, this.data.day]
@@ -123,7 +124,7 @@ Page({
         url: '/pages/create/create',
       })
     }
-    let event = { title: title, user_id: 6 }
+    let event = { title: title, user_id: 6, description: description, category: category }
     // description: description, location: location, difficulty: difficulty, time: new Date(this.data.year, this.data.month - 1, this.data.day, Number(e.detail.value.time_start)),
     console.log("event",event)
     wx.request({
