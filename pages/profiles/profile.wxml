@@ -18,8 +18,9 @@
   </view>
 </view>
 
-<view wx:for="{{services}}" wx:for-item="service" wx:if="{{wx.getUserInfo}}">
+
+<view  wx:if="{{hasUserInfo}}" wx:for="{{services}}" wx:for-item="service">
 <view>{{service.title}}</view>
-<view>{{service.description}}</view>
 <view>{{service.category}}</view>
+<view>{{service.description}}</view>
 </view>
