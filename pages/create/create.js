@@ -1,4 +1,5 @@
 // pages/create/create.js
+const app = getApp()
 const date = new Date()
 const years = []
 const months = []
@@ -121,7 +122,29 @@ Page({
 
   },
   formSubmit: function (e) {
-    console.log(e)
+    wx.authorize({
+      scope: 'scope.userInfo',
+      success: res => {
+        console.log('res',res)
+        wx.getUserInfo({
+          success: function (res) {
+            var userInfo = res.userInfo
+            var nickName = userInfo.nickName
+            var avatarUrl = userInfo.avatarUrl
+            var gender = userInfo.gender //性别 0：未知、1：男、2：女
+            var province = userInfo.province
+            var city = userInfo.city
+            var country = userInfo.country
+            console.log(nickName)
+          }
+        })
+      },
+      fail: f => {
+        console.log('f',f)
+      }
+    })
+
+    console.log('scope',this.scope)
     let title = e.detail.value.title
     let description = e.detail.value.description
     let category = e.detail.value.category
@@ -158,7 +181,8 @@ Page({
       }
     })
   },
+
   formReset: function () {
     console.log('form has encountered a reset event')
-  }
+  },
 })
