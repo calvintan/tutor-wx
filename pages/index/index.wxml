@@ -1,10 +1,20 @@
 <!--index.wxml-->
-<view class="banner">
+<!-- <view class="banner">
   <text class="banner-intro">Welcome to TeamUp!</text>
   <image class="banner-image" src="/images/home-banner.jpg"></image>
-</view>
+</view> -->
+<swiper class="slider" indicator-dots="{{indicatorDots}}"
+  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+  <swiper-item>
+    <image src="/images/home-banner.jpg" class="slide-image" />
+  </swiper-item>
 
-<text class="h1">Pick a class from our range of topics below</text>
+  <swiper-item>
+    <image src="/images/home-banner.jpg" class="slide-image" />
+  </swiper-item>
+</swiper>
+
+<view class="h1">Browse classes by topic</view>
 
 <view class="category">
   <view class="row">

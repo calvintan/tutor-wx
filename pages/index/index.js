@@ -51,6 +51,12 @@ Page({
   //     hasUserInfo: true
   //   })
   // }
+  data: {
+    indicatorDots: true,
+    autoplay: true,
+    interval: 5000,
+    duration: 1000
+  },
   goToCategory: function (e) {
     let cat = e.currentTarget.dataset.category
     console.log(e)
