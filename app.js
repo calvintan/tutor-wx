@@ -1,7 +1,8 @@
 //app.js
 App({
   onLaunch: function () {
-    const host = 'https://tutor-app-mp.herokuapp.com/'
+    const host = 'http://localhost:3000/'
+    // const host = 'https://tutor-app-mp.herokuapp.com/'
     console.log('beginning login')
     wx.login({
       success: (res) => {
@@ -13,7 +14,7 @@ App({
             code: res.code
           },
           success: (res) => {
-            console.log(res)
+            console.log(2019, res)
             this.globalData.userId = res.data.userId
           }
         })
@@ -21,6 +22,7 @@ App({
     })
   },
   globalData: {
-    userInfo: null
-  }
+    userInfo: null,
+    userId: null
+  },
 })
