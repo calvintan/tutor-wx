@@ -1,14 +1,24 @@
 // pages/create/create.js
 const date = new Date()
+const years = []
 const months = []
 const days = []
+const times = []
+
+for (let i = date.getFullYear() ; i <= date.getFullYear() + 3; i++) {
+  years.push(i)
+}
 
 for (let i = 1; i <= 12; i++) {
   months.push(i)
 }
 
-for (let i = 1; i <= 31; i++) {
+for (let i = 1 ; i <= 31; i++) {
   days.push(i)
+}
+
+for (let i = 0; i <= 24; i++) {
+  times.push(i)
 }
 
 Page({
@@ -17,27 +27,37 @@ Page({
    * Page initial data
    */
   data: {
-    items: [
+    category: [
+      { name: "chinese", value: "chinese" },
+      { name: "english", value: "english" },
+      { name: "math", value: "math" },
+      { name: "coding", value: "coding" },
+      { name: "korean", value: "korean" },
+      { name: "science", value: "science" },
+    ],
+    difficulty: [
       {name: "beginner", value:"beginner"},
       {name:"intermediate", value:"intermediate"},
       {name:"master", value:"master"}
     ],
-    years: [date.getFullYear()],
+    years: years,
     year: date.getFullYear(),
-    months: months,
-    month: 1,
+    months: months, default: 8,
+    month: date.getMonth() + 1,
     days: days,
-    day: 1,
+    day: date.getDate(),
+    times: times,
+    time: date.getHours(),
     value: []
   },
 
   bindChange: function (e) {
     const val = e.detail.value
-    console.log("month", this.data.month)
     this.setData({
-      year: date.getFullYear(),
+      year: this.data.years[val[0]],
       month: this.data.months[val[1]],
       day: this.data.days[val[2]],
+      time: this.data.times[val[3]]
     })
   },
 
@@ -108,7 +128,7 @@ Page({
     let difficulty = e.detail.value.difficulty
     let location = e.detail.value.location
     let saved_date = [this.data.year, this.data.month, this.data.day]
-    if ((saved_date[1] < date.getMonth() + 1) || (saved_date[1] == date.getMonth() + 1 && saved_date[2] < date.getDate()) || [...Array(25).keys()].includes(Number(e.detail.value.time_start))==false ) {
+    if ((saved_date[1] < date.getMonth() + 1) || (saved_date[1] == date.getMonth() + 1 && saved_date[2] < date.getDate())) {
       wx.showModal({
         title: 'Spam Alert',
         content: 'Time is invalid!',
@@ -124,8 +144,7 @@ Page({
         url: '/pages/create/create',
       })
     }
-    let event = { title: title, user_id: 6, description: description, category: category }
-    // description: description, location: location, difficulty: difficulty, time: new Date(this.data.year, this.data.month - 1, this.data.day, Number(e.detail.value.time_start)),
+    let event = { title: title, user_id: 6, description: description, category: category, description: description, location: location, difficulty: difficulty, time: new Date(this.data.year, this.data.month - 1, this.data.day, this.data.time)}
     console.log("event",event)
     wx.request({
       url: 'https://tutor-app-mp.herokuapp.com/api/v1/services/',
