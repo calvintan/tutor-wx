@@ -17,3 +17,9 @@
     <text> UPCOMING CLASSES</text>
   </view>
 </view>
+
+<view wx:for="{{services}}" wx:for-item="service" wx:if="{{wx.getUserInfo}}">
+<view>{{service.title}}</view>
+<view>{{service.description}}</view>
+<view>{{service.category}}</view>
+</view>
