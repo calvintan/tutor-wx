@@ -1,5 +1,6 @@
 // pages/profiles/profile.js
 const app = getApp()
+let id = getApp().globalData.userId
 Page({
 
   /**
@@ -16,7 +17,6 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-    console.log(options)
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -30,7 +30,24 @@ Page({
           userInfo: res.userInfo,
           hasUserInfo: true
         })
-      }
+      },
+      console.log('id', id)
+      console.log('app_id', app.globalData)
+      let sth = app.globalData
+      console.log('reeeeeeel', sth.userId)
+      let page = this
+      wx.request({
+        url: `http://localhost:3000/api/v1/users/${id}`,
+        // url: `https://tutor-app-mp.herokuapp.com/api/v1/services/${id}`,
+        success: function (res) {
+          console.log("service", res.data);
+          const service = res.data;
+          // Update local data
+          page.setData({
+            service: service
+          });
+        }
+      })
     } else {
       // 在没有 open-type=getUserInfo 版本的兼容处理
       wx.getUserInfo({
@@ -41,9 +58,20 @@ Page({
             hasUserInfo: true
           })
         }
+      }),
+      wx.request({
+        url: `http://localhost:3000/api/v1/users/${id}`,
+        // url: `https://tutor-app-mp.herokuapp.com/api/v1/services/${id}`,
+        success: function (res) {
+          console.log("service", res.data);
+          const service = res.data;
+          // Update local data
+          page.setData({
+            service: service
+          });
+        }
       })
     }
-
   },
 
   /**

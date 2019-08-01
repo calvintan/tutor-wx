@@ -5,7 +5,7 @@ const years = []
 const months = []
 const days = []
 const times = []
-
+console.log(22, app.globalData.userId)
 for (let i = date.getFullYear() ; i <= date.getFullYear() + 3; i++) {
   years.push(i)
 }
@@ -135,16 +135,13 @@ Page({
             var province = userInfo.province
             var city = userInfo.city
             var country = userInfo.country
+            console.log(userInfo)
             console.log(nickName)
+
           }
         })
       },
-      fail: f => {
-        console.log('f',f)
-      }
     })
-
-    console.log('scope',this.scope)
     let title = e.detail.value.title
     let description = e.detail.value.description
     let category = e.detail.value.category
@@ -167,14 +164,15 @@ Page({
         url: '/pages/create/create',
       })
     }
-    let event = { title: title, user_id: 6, description: description, category: category, description: description, location: location, difficulty: difficulty, time: new Date(this.data.year, this.data.month - 1, this.data.day, this.data.time)}
+    let event = { title: title, user_id: getApp().globalData.userId, description: description, category: category, description: description, location: location, difficulty: difficulty, time: new Date(this.data.year, this.data.month - 1, this.data.day, this.data.time)}
     console.log("event",event)
     wx.request({
-      url: 'https://tutor-app-mp.herokuapp.com/api/v1/services/',
+      url: 'http://localhost:3000/api/v1/services/',
+      // url: 'https://tutor-app-mp.herokuapp.com/api/v1/services/',
       method: "POST",
       data: event,
       success() {
-        wx.redirectTo({
+        wx.switchTab({
           url: '/pages/profiles/profile',
         })
         console.log('success')
