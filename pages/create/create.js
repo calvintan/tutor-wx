@@ -37,9 +37,9 @@ Page({
       { name: "science", value: "science" },
     ],
     difficulty: [
-      {name: "beginner", value:"beginner"},
-      {name:"intermediate", value:"intermediate"},
-      {name:"master", value:"master"}
+      { name: "beginner", value: "beginner" },
+      { name: "intermediate", value: "intermediate" },
+      { name: "master", value: "master" }
     ],
     years: years,
     year: date.getFullYear(),
@@ -125,7 +125,7 @@ Page({
     wx.authorize({
       scope: 'scope.userInfo',
       success: res => {
-        console.log('res',res)
+        console.log('res', res)
         wx.getUserInfo({
           success: function (res) {
             var userInfo = res.userInfo
@@ -167,14 +167,15 @@ Page({
         url: '/pages/create/create',
       })
     }
-    let event = { title: title, user_id: 6, description: description, category: category, description: description, location: location, difficulty: difficulty, time: new Date(this.data.year, this.data.month - 1, this.data.day, this.data.time)}
+    let event = { title: title, user_id: getApp().globalData.userId, description: description, category: category, description: description, location: location, difficulty: difficulty, time: new Date(this.data.year, this.data.month - 1, this.data.day, this.data.time)}
     console.log("event",event)
     wx.request({
-      url: 'https://tutor-app-mp.herokuapp.com/api/v1/services/',
+      url: 'http://localhost:3000/api/v1/services/',
+      // url: 'https://tutor-app-mp.herokuapp.com/api/v1/services/',
       method: "POST",
       data: event,
       success() {
-        wx.redirectTo({
+        wx.reLaunch({
           url: '/pages/profiles/profile',
         })
         console.log('success')
@@ -186,3 +187,4 @@ Page({
     console.log('form has encountered a reset event')
   },
 })
+
