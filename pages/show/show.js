@@ -6,24 +6,46 @@ Page({
    * Page initial data
    */
   data: {
-
+    sc: '14',
+  },
+  //This is for the map
+  markertap(e) {
+    console.log(e.markerId)
   },
 
   /**
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-    console.log(options)
-    let page = this
-    let id = options.id
+    let page = this;
+    let id = options.id;
+    let mk = [{
+      iconPath: "/images/icons/home.png",
+      id: 0,
+      latitude: 23.099994,
+      longitude: 113.324520,
+      width: 50,
+      height: 50,
+      callout: {
+        content: "Le Wagon \n Shanghai, China",
+        fontSize: 12,
+        color: "#000000",
+        padding: 10
+      }
+    }]
+
     wx.request({
       url: `http://localhost:3000/api/v1/services/${id}`,
       // url: `https://tutor-app-mp.herokuapp.com/api/v1/services/${id}`,
       success: function (res) {
         const service = res.data.service;
+        mk[0].latitude = service.latitude
+        mk[0].longitude = service.longitude
+        mk[0].callout.content = service.title
         // Update local data
         page.setData({
           service: service,
+          mk: mk
         });
       }
     })
@@ -88,7 +110,6 @@ Page({
       // url: 'https://tutor-app-mp.herokuapp.com/api/v1/services/',
       method: "POST",
       data: event,
-      // data: 
       success() {
         wx.redirectTo({
           url: '/pages/success/success',
