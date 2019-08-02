@@ -20,35 +20,29 @@
 </view>
 
 <!-- list of classes goes here -->
-<view class="card">
-  <view class="card-image-wrapper">
-    <image class="card-image" src="/images/person-4.jpg"></image>
-  </view>
-  <view class="card-info">
-    <view class='h2'>Ruby 101</view>
-    <view class='p'>A very exciting introduction to the Ruby programming language</view>
-    <view class="card-dt">
-      <view class="card-dt-item">
-        <image class="card-icon" src="/images/icon-date.png"></image>
-        02 August 2019
+<view wx:if="{{hasUserInfo}}" wx:for="{{services}}" wx:for-item="service">
+  <view class="card">
+    <view class="card-image-wrapper">
+      <image class="card-image" src="/images/person-4.jpg"></image>
+    </view>
+    <view class="card-info">
+      <view class='h2'>{{service.title}}</view>
+      <view class='p'>{{service.category}}</view>
+      <view class='p'>{{service.description}}</view>
+      <view class="card-dt">
+        <view class="card-dt-item">
+          <image class="card-icon" src="/images/icon-date.png"></image>
+          {{service.time}}
+        </view>
       </view>
-      <view class="card-dt-item">
-        <image class="card-icon" src="/images/icon-time.png"></image>
-        11:00 - 12:00
-      </view>
+      <button bindtap = "deleteService" data-id = "{{service.id}}">Delete</button>
+      <button bindtap = "editService" data-id = "{{service.id}}">Edit</button>
     </view>
   </view>
 </view>
 
-<view wx:if="{{hasUserInfo}}" wx:for="{{services}}" wx:for-item="service">
 
-<view>{{service.title}}</view>
-<view>{{service.category}}</view>
-<view>{{service.description}}</view>
-<view>{{service.time}}</view>
-<!-- <button bindtap = "deleteService" data-id = "{{service.id}}">Delete</button> -->
-<!-- <button bindtap = "editService" data-id = "{{service.id}}">Edit</button> -->
 
-</view>
+
 
 <view wx:if='{{services.length < 1}}' style='text-align: center; padding: 30rpx; color: grey;'>You have no classes! How about joining or starting one?</view>
