@@ -1,4 +1,5 @@
 // pages/show/show.js
+const app = getApp()
 Page({
 
   /**
@@ -12,6 +13,7 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
+    console.log(options)
     let page = this
     let id = options.id
     wx.request({
@@ -76,5 +78,21 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  createBooking: function (e) {
+    const serviceId = e.currentTarget.dataset.id
+    wx.request({
+      url: `http://localhost:3000/api/v1/services/${serviceId}/bookings`,
+      // url: 'https://tutor-app-mp.herokuapp.com/api/v1/services/',
+      method: "POST",
+      data: app.globalData.userId,
+      success() {
+        wx.reLaunch({
+          url: '/pages/profiles/profile',
+        })
+        console.log('success')
+      }
+    })
   }
 })
