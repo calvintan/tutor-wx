@@ -35,4 +35,9 @@
 </view>
 
 
+<view>
+  <map bindmarkertap="markertap" longitude="{{service.longitude}}" latitude="{{service.latitude}}" scale="{{sc}}" style="width: 100%; height: 40vh;" markers="{{mk}}"></map>
+</view>
+
+
 
