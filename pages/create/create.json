@@ -1,3 +1,9 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "wux-cell-group": "/dist/cell-group/index",
+    "wux-cell": "/dist/cell/index",
+    "wux-select": "/dist/select/index",
+    "wux-input": "/dist/input/index",
+    "wux-textarea": "/dist/textarea/index"
+  }
 }

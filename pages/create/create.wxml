@@ -5,12 +5,24 @@
     <view class="section__title">Title</view>
     <input name="title" />
   </view>
+
+  <wux-cell hover-class="none">
+      <wux-input label="QQ" placeholder="Input your QQ" />
+  </wux-cell>
+
   <view class="section">
     <view class="section__title">Description</view>
     <textarea name="description"></textarea>
   </view>
   <view class="section">
     <view class="section__title">Category</view>
+
+    <wux-select id="wux-select1" />
+
+    <wux-cell-group>
+      <wux-cell title="Select a topic for your class" extra="{{ title1 }}" bind:click="onClick1"></wux-cell>
+    </wux-cell-group>
+    
     <radio-group class="radio-group" bindchange="radioChange" name="category">
       <label class="radio" wx:for="{{category}}" wx:for-item="item">
         <radio value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
