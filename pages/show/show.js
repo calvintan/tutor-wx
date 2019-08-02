@@ -35,7 +35,7 @@ Page({
       // url: `https://tutor-app-mp.herokuapp.com/api/v1/services/${id}`,
       success: function (res) {
         const service = res.data.service;
-        console.log('res.data is: ', res.data)
+        console.log('res data is: ', res.data)
         console.log('mk:', mk[0])
         mk[0].latitude = service.latitude
         mk[0].longitude = service.longitude

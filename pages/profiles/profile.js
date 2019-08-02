@@ -47,6 +47,7 @@ Page({
     this.setData({
       current: e.detail.key,
     })
+    console.log('current:', e.detail.key)
   },
 
   /**
@@ -172,7 +173,7 @@ Page({
 
   },
   getUserInfo: function (e) {
-    console.log(e)
+    app.globalData.userInfo
     app.globalData.userInfo = e.detail.userInfo
     this.setData({
       userInfo: e.detail.userInfo,
