@@ -5,7 +5,11 @@ Page({
    * Page initial data
    */
   data: {
-
+    sc: '14',
+  },
+  //This is for the map
+  markertap(e) {
+    console.log(e.markerId)
   },
 
   /**
@@ -14,21 +18,36 @@ Page({
   onLoad: function (options) {
     let page = this
     let id = options.id
+    let mk = [
+      {
+        iconPath: "/images/icons/home.png", // **1
+        id: 0,
+        latitude: 23.099994,
+        longitude: 113.324520,
+        width: 50,
+        height: 50,
+        callout: { content: "Le Wagon \n Shanghai, China", fontSize: 12, color: "#000000", padding: 10 }
+      }]
     wx.request({
       url: `http://localhost:3000/api/v1/services/${id}`,
       // url: `https://tutor-app-mp.herokuapp.com/api/v1/services/${id}`,
       success: function (res) {
-        console.log(res.data.service);
         const service = res.data.service;
-
+        console.log('res.data is: ', res.data)
+        console.log('mk:', mk[0])
+        mk[0].latitude = service.latitude
+        mk[0].longitude = service.longitude
+        mk[0].callout.content = service.title
         // Update local data
         page.setData({
-          service: service
+          service: service,
+          mk: mk
         });
+        console.log(page.data)
       }
     })
   },
-
+  
   /**
    * Lifecycle function--Called when page is initially rendered
    */
