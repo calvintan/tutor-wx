@@ -1,0 +1,49 @@
+<!--pages/edit/edit.wxml-->
+<!--pages/create/create.wxml-->
+<view class='h1'>Let's edit {{service.title}}</view>
+<form bindsubmit="formSubmit" bindreset="formReset">
+  <view class="section">
+    <view class="section__title">Title</view>
+    <input name="title" value="{{service.title}}" />
+  </view>
+  <view class="section">
+    <view class="section__title">Description</view>
+    <textarea name="description" value="{{service.description}}"></textarea>
+  </view>
+    <view class="section">
+    <view class="section__title">Difficulty</view>
+    <radio-group class="radio-group" bindchange="radioChange" name="difficulty">
+      <label class="radio" wx:for="{{difficulty}}" wx:for-item="item">
+        <radio value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+      </label>
+    </radio-group>
+  </view>
+  <view class="section">
+    <view class="section__title">Date</view>
+<view>
+  <view>{{year}} 年 {{month}} 月 {{day}} 日 {{time}} 点</view>
+  <picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px;" value="{{value}}" bindchange="bindChange" name="date">
+    <picker-view-column>
+      <view wx:for="{{years}}" style="line-height: 50px">{{item}} 年</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{months}}" style="line-height: 50px">{{item}} 月</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{days}}" style="line-height: 50px">{{item}} 日</view>
+    </picker-view-column>
+        <picker-view-column>
+      <view wx:for="{{times}}" style="line-height: 50px">{{item}} 点</view>
+    </picker-view-column>
+  </picker-view>
+</view>
+  </view>
+  <view class="section">
+    <view class="section__title">Location</view>
+    <input value="{{service.location}}"name="location"/>
+  </view>
+  <view class="btn-area">
+    <view class="button"><button formType="submit">Submit</button></view>
+    <view class="button"><button formType="reset">Reset</button></view>
+  </view>
+</form>

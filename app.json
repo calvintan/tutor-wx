@@ -4,7 +4,8 @@
     "pages/category/category",
     "pages/create/create",
     "pages/show/show",
-    "pages/profiles/profile"
+    "pages/profiles/profile",
+    "pages/edit/edit"
   ],
   "window": {
     "backgroundTextStyle": "light",

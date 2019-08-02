@@ -1,0 +1,43 @@
+/* pages/edit/edit.wxss */
+/* pages/create/create.wxss */
+.h1 {
+  font-size: 20px;
+  font-weight: 900;
+  padding-left: 3%;
+  padding-bottom: 2vh;
+}
+.section {
+  padding: 3%;
+}
+input {
+  padding-top: 1vh;
+  background-color: #D8D8D8;
+}
+textarea {
+  padding-top: 1vh;
+  background-color: #D8D8D8;
+  width: 100%;
+}
+
+button {
+  background-color: #4A90E2;
+  color: white;
+  border-radius: 50px;
+  size: 10px;
+}
+
+.button {
+  margin-top: 6%;
+  margin-bottom: 6%;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.radio-group{
+  padding-top: 2%;
+}
+
+.radio {
+  margin-top: 3%;
+  display: block;
+}
