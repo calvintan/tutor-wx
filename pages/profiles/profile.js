@@ -3,6 +3,37 @@ const app = getApp()
 
 Page({
 
+  // binded to delete button
+  deleteService(e) {
+    const data = e.currentTarget.dataset;
+    console.log(getApp().globalData.userId)
+
+    // make a DELETE request
+    wx.request({
+      url: `http://localhost:3000/api/v1/services/${data.id}`,
+      method: 'DELETE',
+      success(r) {
+        // redirect to index page when done
+        console.log('yes', r)
+      },
+      fail(r) {
+        console.log('no',r)
+      }
+    });
+
+    return wx.reLaunch({
+      url: '/pages/profiles/profile',
+    })
+  },
+
+  //binding to edit
+  editService: function(e){
+    let id = e.currentTarget.dataset.id
+    wx.navigateTo({
+      url: `/pages/edit/edit?id=${id}`,
+    })
+  },
+
   /**
    * Page initial data
    */
@@ -25,6 +56,19 @@ Page({
     console.log('app', app.globalData)
     let page = this
     // console.log(options)
+    wx.request({
+      url: `http://localhost:3000/api/v1/users/${app.globalData.userId}`,
+      // url: `https://tutor-app-mp.herokuapp.com/api/v1/services/${id}`,
+      success: function (res) {
+        console.log("services", res.data.services);
+        const services = res.data.services;
+
+        // Update local data
+        page.setData({
+          services: services
+        });
+      }
+    })
     if (app.globalData.userId) {
       // this.setData({
       //   userInfo: app.globalData.userInfo,
