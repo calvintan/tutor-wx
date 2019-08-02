@@ -5,7 +5,8 @@
     "pages/create/create",
     "pages/show/show",
     "pages/profiles/profile",
-    "pages/edit/edit"
+    "pages/edit/edit",
+    "pages/success/success"
   ],
   "window": {
     "backgroundTextStyle": "light",

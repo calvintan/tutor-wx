@@ -25,7 +25,29 @@ Page({
       url: '/pages/profiles/profile',
     })
   },
+  
+  deletebooking(e) {
+    let page = this
+    const data = e.currentTarget;
+    console.log('data',page.data)
+    console.log('cur',e.currentTarget)
+    // make a DELETE request
+    wx.request({
+      url: `http://localhost:3000/api/v1/services/${page.data.services[0].id}/bookings/${e.currentTarget.dataset.id}`,
+      method: 'DELETE',
+      success(r) {
+        // redirect to index page when done
+        console.log('yes', r)
+      },
+      fail(r) {
+        console.log('no', r)
+      }
+    });
 
+    return wx.redirectTo({
+      url: '/pages/success/success',
+    })
+  },
   //binding to edit
   editService: function(e){
     let id = e.currentTarget.dataset.id
@@ -53,22 +75,23 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-    console.log('app', app.globalData)
+    // console.log('app', app.globalData)
     let page = this
     // console.log(options)
-    wx.request({
-      url: `http://localhost:3000/api/v1/users/${app.globalData.userId}`,
-      // url: `https://tutor-app-mp.herokuapp.com/api/v1/services/${id}`,
-      success: function (res) {
-        console.log("services", res.data.services);
-        const services = res.data.services;
+    // wx.request({
+    //   url: `http://localhost:3000/api/v1/users/${app.globalData.userId}`,
+    //   // url: `https://tutor-app-mp.herokuapp.com/api/v1/services/${id}`,
+    //   success: function (res) {
+    //     console.log("services", res.data.services);
+    //     const services = res.data.services;
 
-        // Update local data
-        page.setData({
-          services: services
-        });
-      }
-    })
+    //     // Update local data
+    //     page.setData({
+    //       services: services,
+    //       bookings: bookings
+    //     });
+    //   }
+    // })
     if (app.globalData.userId) {
       // this.setData({
       //   userInfo: app.globalData.userInfo,
@@ -80,10 +103,11 @@ Page({
         success: function (res) {
           console.log("services", res.data.services);
           const services = res.data.services;
-
+          const bookings = res.data.bookings;
           // Update local data
           page.setData({
-            services: services
+            services: services,
+            bookings: bookings
           });
         }
       })

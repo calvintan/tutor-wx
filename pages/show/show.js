@@ -39,7 +39,6 @@ Page({
       // url: `https://tutor-app-mp.herokuapp.com/api/v1/services/${id}`,
       success: function (res) {
         const service = res.data.service;
-        console.log('res.data is: ', res.data)
         mk[0].latitude = service.latitude
         mk[0].longitude = service.longitude
         mk[0].callout.content = service.title
@@ -103,14 +102,17 @@ Page({
 
   createBooking: function (e) {
     const serviceId = e.currentTarget.dataset.id
+    const event = {user_id: getApp().globalData.userId}
+    console.log('service',this.data.service)
+    // console.log('booking',e)
     wx.request({
-      url: `http://localhost:3000/api/v1/services/${serviceId}/bookings`,
+      url: `http://localhost:3000/api/v1/services/${serviceId}/bookings/`,
       // url: 'https://tutor-app-mp.herokuapp.com/api/v1/services/',
       method: "POST",
-      data: app.globalData.userId,
+      data: event,
       success() {
-        wx.reLaunch({
-          url: '/pages/profiles/profile',
+        wx.redirectTo({
+          url: '/pages/success/success',
         })
         console.log('success')
       }
