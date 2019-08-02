@@ -143,16 +143,13 @@ Page({
         console.log('f',f)
       }
     })
-
-    console.log('scope',this.scope)
     let title = e.detail.value.title
     let description = e.detail.value.description
     let category = e.detail.value.category
     let difficulty = e.detail.value.difficulty
     let location = e.detail.value.location
     let saved_date = [this.data.year, this.data.month, this.data.day]
-    let event = { title: title, user_id: getApp().globalData.userId, description: description, category: category, description: description, location: location, difficulty: difficulty, time: new Date(this.data.year, this.data.month - 1, this.data.day, this.data.time)}
-    console.log("event",event)
+    let event = { title: title, user_id: getApp().globalData.userId, description: description, category: category, location: location, difficulty: difficulty, time: new Date(this.data.year, this.data.month - 1, this.data.day, this.data.time)}
     wx.request({
       url: 'http://localhost:3000/api/v1/services/',
       // url: 'https://tutor-app-mp.herokuapp.com/api/v1/services/',
@@ -162,7 +159,6 @@ Page({
         wx.reLaunch({
           url: '/pages/profiles/profile',
         })
-        console.log('success')
       }
     })
   },

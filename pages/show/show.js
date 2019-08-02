@@ -17,26 +17,28 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-    console.log(options)
-    let page = this
-    let id = options.id
-    let mk = [
-      {
-        iconPath: "/images/icons/home.png", // **1
-        id: 0,
-        latitude: 23.099994,
-        longitude: 113.324520,
-        width: 50,
-        height: 50,
-        callout: { content: "Le Wagon \n Shanghai, China", fontSize: 12, color: "#000000", padding: 10 }
-      }]
+    let page = this;
+    let id = options.id;
+    let mk = [{
+      iconPath: "/images/icons/home.png",
+      id: 0,
+      latitude: 23.099994,
+      longitude: 113.324520,
+      width: 50,
+      height: 50,
+      callout: {
+        content: "Le Wagon \n Shanghai, China",
+        fontSize: 12,
+        color: "#000000",
+        padding: 10
+      }
+    }]
+
     wx.request({
       url: `http://localhost:3000/api/v1/services/${id}`,
       // url: `https://tutor-app-mp.herokuapp.com/api/v1/services/${id}`,
       success: function (res) {
         const service = res.data.service;
-        console.log('res data is: ', res.data)
-        console.log('mk:', mk[0])
         mk[0].latitude = service.latitude
         mk[0].longitude = service.longitude
         mk[0].callout.content = service.title
@@ -45,7 +47,6 @@ Page({
           service: service,
           mk: mk
         });
-        console.log(page.data)
       }
     })
   },
@@ -101,14 +102,17 @@ Page({
 
   createBooking: function (e) {
     const serviceId = e.currentTarget.dataset.id
+    const event = {user_id: getApp().globalData.userId}
+    console.log('service',this.data.service)
+    // console.log('booking',e)
     wx.request({
-      url: `http://localhost:3000/api/v1/services/${serviceId}/bookings`,
+      url: `http://localhost:3000/api/v1/services/${serviceId}/bookings/`,
       // url: 'https://tutor-app-mp.herokuapp.com/api/v1/services/',
       method: "POST",
-      data: app.globalData.userId,
+      data: event,
       success() {
-        wx.reLaunch({
-          url: '/pages/profiles/profile',
+        wx.redirectTo({
+          url: '/pages/success/success',
         })
         console.log('success')
       }

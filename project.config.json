@@ -73,8 +73,8 @@
 				},
 				{
 					"id": -1,
-					"name": "pages/index/index",
-					"pathName": "pages/index/index",
+					"name": "success",
+					"pathName": "pages/success/success",
 					"scene": null
 				}
 			]

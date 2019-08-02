@@ -45,7 +45,12 @@
   </view>
 </view>
 
-
+<view wx:if="{{hasUserInfo}}" wx:for="{{bookings}}" wx:for-item="booking">
+  <view>Booking {{booking.id}}</view>
+  <view>Confirmed: {{booking.confirmed}}</view>
+  <view>Booked_service: {{booking.service.title}}</view>
+  <button bindtap="deletebooking" data-id = "{{booking.id}}">Delete This booking</button>
+</view>
 
 
 
