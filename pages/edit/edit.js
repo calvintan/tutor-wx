@@ -79,7 +79,8 @@ Page({
     });
     // Get story data from server (to show in form)
     wx.request({
-      url: `http://localhost:3000/api/v1/services/${options.id}`,
+      // url: `http://localhost:3000/api/v1/services/${options.id}`,
+      url: `https://tutor-app-mp.herokuapp.com/api/v1/services/${options.id}`,
       success(res) {
         console.log('res',res)
         var service = res.data.service;

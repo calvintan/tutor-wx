@@ -10,7 +10,8 @@ Page({
 
     // make a DELETE request
     wx.request({
-      url: `http://localhost:3000/api/v1/services/${data.id}`,
+      // url: `http://localhost:3000/api/v1/services/${data.id}`,
+      url: `https://tutor-app-mp.herokuapp.com/api/v1/services/${data.id}`,
       method: 'DELETE',
       success(r) {
         // redirect to index page when done
@@ -25,7 +26,7 @@ Page({
       url: '/pages/profiles/profile',
     })
   },
-  
+
   deletebooking(e) {
     let page = this
     const data = e.currentTarget;
@@ -36,13 +37,15 @@ Page({
     console.log("e", e.currentTarget)
     // console.log('booking',e)
     wx.request({
-      url: `http://localhost:3000/api/v1/services/${e.currentTarget.dataset.serviceid}`,
+      // url: `http://localhost:3000/api/v1/services/${e.currentTarget.dataset.serviceid}`,
+      url: `https://tutor-app-mp.herokuapp.com/api/v1/services/${e.currentTarget.dataset.serviceid}`,
       method: "PUT",
       data: e.currentTarget.dataset.service
     })
     // make a DELETE request
     wx.request({
-      url: `http://localhost:3000/api/v1/services/${e.currentTarget.dataset.serviceid}/bookings/${e.currentTarget.dataset.id}`,
+      // url: `http://localhost:3000/api/v1/services/${e.currentTarget.dataset.serviceid}/bookings/${e.currentTarget.dataset.id}`,
+      url: `https://tutor-app-mp.herokuapp.com/api/v1/services/${e.currentTarget.dataset.serviceid}/bookings/${e.currentTarget.dataset.id}`,
       method: 'DELETE',
       success(r) {
         // redirect to index page when done
@@ -108,8 +111,8 @@ Page({
       //   hasUserInfo: true
       // })
       wx.request({
-        url: `http://localhost:3000/api/v1/users/${app.globalData.userId}`,
-        // url: `https://tutor-app-mp.herokuapp.com/api/v1/services/${id}`,
+        // url: `http://localhost:3000/api/v1/users/${app.globalData.userId}`,
+        url: `https://tutor-app-mp.herokuapp.com/api/v1/users/${app.globalData.userId}`,
         success: function (res) {
           console.log("services", res.data.services);
           const services = res.data.services;
@@ -130,8 +133,8 @@ Page({
           hasUserInfo: true
         }),
         wx.request({
-          url: `http://localhost:3000/api/v1/services/${id}`,
-          // url: `https://tutor-app-mp.herokuapp.com/api/v1/services/${id}`,
+          // url: `http://localhost:3000/api/v1/services/${id}`,
+          url: `https://tutor-app-mp.herokuapp.com/api/v1/services/${id}`,
           success: function (res) {
             console.log(res.data.service);
             const service = res.data.service;

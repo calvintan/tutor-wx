@@ -1,4 +1,3 @@
-// pages/success/success.js
 Page({
 
   /**
@@ -6,6 +5,12 @@ Page({
    */
   data: {
 
+  },
+
+  back: function() {
+    wx.reLaunch({
+      url: '/pages/index/index',
+    })
   },
 
   /**

@@ -34,8 +34,8 @@ Page({
       }
     }];
     wx.request({
-      url: `http://localhost:3000/api/v1/services/${id}`,
-      // url: `https://tutor-app-mp.herokuapp.com/api/v1/services/${id}`,
+      // url: `http://localhost:3000/api/v1/services/${id}`,
+      url: `https://tutor-app-mp.herokuapp.com/api/v1/services/${id}`,
       success: function (res) {
         const service = res.data.service;
         mk[0].latitude = service.latitude
@@ -108,13 +108,14 @@ Page({
     console.log("show",this.data.service.show)
     // console.log('booking',e)
     wx.request({
-      url: `http://localhost:3000/api/v1/services/${serviceId}`,
+      // url: `http://localhost:3000/api/v1/services/${serviceId}`,
+      url: `https://tutor-app-mp.herokuapp.com/api/v1/services/${serviceId}`,
       method: "PUT",
       data: this.data.service
     })
     wx.request({
-      url: `http://localhost:3000/api/v1/services/${serviceId}/bookings/`,
-      // url: 'https://tutor-app-mp.herokuapp.com/api/v1/services/',
+      // url: `http://localhost:3000/api/v1/services/${serviceId}/bookings/`,
+      url: `https://tutor-app-mp.herokuapp.com/api/v1/services/${serviceId}/bookings/`,
       method: "POST",
       data: event,
       success() {

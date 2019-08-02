@@ -1,2 +1,2 @@
-<!--pages/success/success.wxml-->
-<text>pages/success/success.wxml</text>
+<text>You have successfully booked!</text>
+<button bindtap="back">Back to all topics</button>

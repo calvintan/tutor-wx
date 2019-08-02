@@ -151,8 +151,8 @@ Page({
     let saved_date = [this.data.year, this.data.month, this.data.day]
     let event = { title: title, user_id: getApp().globalData.userId, description: description, category: category, location: location, difficulty: difficulty, time: new Date(this.data.year, this.data.month - 1, this.data.day, this.data.time)}
     wx.request({
-      url: 'http://localhost:3000/api/v1/services/',
-      // url: 'https://tutor-app-mp.herokuapp.com/api/v1/services/',
+      // url: 'http://localhost:3000/api/v1/services/',
+      url: 'https://tutor-app-mp.herokuapp.com/api/v1/services/',
       method: "POST",
       data: event,
       success() {

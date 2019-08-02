@@ -19,8 +19,8 @@ Page({
     let page = this;
 
     wx.request({
-      // url: `https://tutor-app-mp.herokuapp.com/api/v1/services/?category=${options.cat}`,
-      url: `http://localhost:3000/api/v1/services/?category=${options.cat}`,
+      url: `https://tutor-app-mp.herokuapp.com/api/v1/services/?category=${options.cat}`,
+      // url: `http://localhost:3000/api/v1/services/?category=${options.cat}`,
       success: function(res) {
         console.log("response.data", res.data);
         const services = res.data;
