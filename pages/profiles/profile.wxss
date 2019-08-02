@@ -1,9 +1,10 @@
 /* pages/profiles/profile.wxss */
 .userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: rgb(165, 159, 159);
+  background: #fff;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,.10);
+  color: #888;
+  margin-bottom: 20px; 
 }
 
 .userinfo-avatar {
@@ -14,16 +15,57 @@
 }
 
 .userinfo-nickname {
-  color: #aaa;
+  color: #353535;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 4px;
 }
 
-.usermotto {
-  margin-top: 200px;
+.userinfo-details {
+  font-size: 14px;
+  padding-bottom: 10px;
 }
 
-.container{
-  margin: 8px;
-  padding: 8px;
-  border-top: solid 3px rgb(165, 159, 159);
-  color: #aaa;
+.card {
+  padding: 20px;
+  background: #fff;
+  display: flex;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,.10);
+}
+
+.card-image {
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right: 12px;
+}
+
+.card-info {
+  max-width: 236px;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.card .h2 {
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+
+.card-icon {
+  width: 12px;
+  height: 12px;
+}
+
+.card-dt {
+  margin-top: 4px;
+}
+
+.card-dt-item {
+  display: inline;
+  margin-right: 8px;
+  font-size: 12px;
+  color: #666;
+  line-height: 1;
 }
