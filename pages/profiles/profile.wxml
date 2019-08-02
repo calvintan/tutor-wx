@@ -8,8 +8,8 @@
 
   <view wx:if="{{hasUserInfo && canIUse}}">
     <view class="userinfo-details">
-      <view>Classes attended: 0</view>
-      <view>Classes taught: 0</view>
+      <view>Classes to attend: {{}}</view>
+      <view>Classes to teach: {{services.length}}</view>
     </view>
 
     <wux-tabs defaultCurrent="tab1" bindchange="onChange">
@@ -21,7 +21,9 @@
 
 <!-- list of classes goes here -->
 <view wx:if="{{hasUserInfo}}" wx:for="{{services}}" wx:for-item="service">
-  <view class="card">
+  
+  
+  <view class="card" wx:if="{{current =='tab2'}}">
     <view class="card-image-wrapper">
       <image class="card-image" src="/images/person-4.jpg"></image>
     </view>
@@ -35,8 +37,10 @@
           {{service.time}}
         </view>
       </view>
-      <button bindtap = "deleteService" data-id = "{{service.id}}">Delete</button>
-      <button bindtap = "editService" data-id = "{{service.id}}">Edit</button>
+      <view class="buttons">
+        <wux-button bindtap = "editService" data-id = "{{service.id}}" block outline type="dark" size="small">Edit class</wux-button>
+        <wux-button bindtap = "deleteService" data-id = "{{service.id}}" block type="assertive" size="small">Cancel class</wux-button>
+      </view>
     </view>
   </view>
 </view>

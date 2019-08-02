@@ -15,6 +15,10 @@
 
     <view class="h2">Location</view>
     <view class="p">{{service.location}}</view>
+
+    <view>
+      <map bindmarkertap="markertap" longitude="{{service.longitude}}" latitude="{{service.latitude}}" scale="{{sc}}" style="width: 100%; height: 30vh;" markers="{{mk}}"></map>
+    </view>
   </view>
   
   <view class="box-wrapper">
@@ -24,15 +28,13 @@
         <image class="card-image" src="/images/person-1.jpg"></image>
       </view>  
       <view class="card-info">
-        <view class='h2'>Sarah Lynn</view>
+        <view class='h2'>{{service.user_id}}</view>
         <view class='p'>Nam condimentum vitae ligula vel ornare. Phasellus at semper turpis. Nunc eu tellus tortor.</view>
       </view>
     </view>
   </view>
-
-<button bindtap="createBooking" data-id='{{service.id}}'>BOOK</button>
-
 </view>
 
-
-
+<view class="btn-book">
+  <wux-button block type="balanced" size="large" bindtap="createBooking" data-id='{{service.id}}'>Book this class</wux-button>
+</view>
