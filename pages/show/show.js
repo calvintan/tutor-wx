@@ -18,7 +18,7 @@ Page({
       url: `http://localhost:3000/api/v1/services/${id}`,
       // url: `https://tutor-app-mp.herokuapp.com/api/v1/services/${id}`,
       success: function (res) {
-        console.log(res.data.service);
+        console.log(res);
         const service = res.data.service;
 
         // Update local data
