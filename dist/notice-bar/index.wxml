@@ -1,35 +1,22 @@
-<wxs src="../wxs/utils.wxs" module="utils" />
-
-<view
-  wx:if="{{ show }}"
-  class="custom-class {{ utils.bem('notice-bar', { withicon: mode, wrapable }) }}"
-  style="color: {{ color }}; background-color: {{ backgroundColor }};"
-  bind:tap="onClick"
->
-  <van-icon
-    wx:if="{{ leftIcon }}"
-    size="16px"
-    name="{{ leftIcon }}"
-    class="van-notice-bar__left-icon"
-  />
-
-  <view class="van-notice-bar__wrap">
-    <view class="van-notice-bar__content {{ !scrollable && !wrapable ? 'van-ellipsis' : '' }}" animation="{{ animationData }}">
-      {{ text }}
+<view class="wux-class {{ classes.wrap }}" wx:if="{{ visible }}" bindtap="onClick">
+    <view class="{{ classes.hd }}">
+        <image class="{{ classes.icon }}" src="{{ icon }}" wx:if="{{ icon }}" />
+        <block wx:else>
+            <slot name="header"></slot>
+        </block>
     </view>
-  </view>
-
-  <van-icon
-    wx:if="{{ mode === 'closeable' }}"
-    class="van-notice-bar__right-icon"
-    name="cross"
-    bind:tap="onClickIcon"
-  />
-  <navigator
-    wx:if="{{ mode === 'link' }}"
-    url="{{ url }}"
-    open-type="{{ openType }}"
-  >
-    <van-icon class="van-notice-bar__right-icon" name="arrow" />
-  </navigator>
+    <view class="{{ classes.bd }}">
+        <view class="{{ classes.container }}">
+            <view class="{{ classes.marquee }}" style="transform: translate3d({{ -animatedWidth + 'px' }}, 0px, 0px)">
+                <block wx:if="{{ content }}">{{ content }}</block>
+                <slot></slot>
+            </view>
+        </view>
+    </view>
+    <view class="{{ classes.ft }}" catchtap="onAction" wx:if="{{ mode === 'closable' || mode === 'link' }}">
+        <image class="{{ classes.action }}" src="{{ action }}" wx:if="{{ action }}" />
+        <block wx:else>
+            <slot name="footer"></slot>
+        </block>
+    </view>
 </view>

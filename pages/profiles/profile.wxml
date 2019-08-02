@@ -1,29 +1,54 @@
 <!--pages/profiles/profile.wxml-->
 <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+  <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+  <block wx:else>
+    <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+    <view class="userinfo-nickname">{{userInfo.nickName}}</view>
+  </block>
+
+  <view wx:if="{{hasUserInfo && canIUse}}">
+    <view class="userinfo-details">
+      <view>Classes attended: 0</view>
+      <view>Classes taught: 0</view>
+    </view>
+
+    <wux-tabs defaultCurrent="tab1" bindchange="onChange">
+      <wux-tab key="tab1" title="Learning"></wux-tab>
+      <wux-tab key="tab2" title="Teaching"></wux-tab>
+    </wux-tabs>
+  </view>
 </view>
 
-<view wx:if="{{hasUserInfo && canIUse}}">
-  <view class = "userinfo">
-  <text>class attended: 0</text>
-  <text>class taught: 0</text>
+<!-- list of classes goes here -->
+<view class="card">
+  <view class="card-image-wrapper">
+    <image class="card-image" src="/images/person-4.jpg"></image>
   </view>
-
-  <view class = "container">
-    <text> UPCOMING CLASSES</text>
+  <view class="card-info">
+    <view class='h2'>Ruby 101</view>
+    <view class='p'>A very exciting introduction to the Ruby programming language</view>
+    <view class="card-dt">
+      <view class="card-dt-item">
+        <image class="card-icon" src="/images/icon-date.png"></image>
+        02 August 2019
+      </view>
+      <view class="card-dt-item">
+        <image class="card-icon" src="/images/icon-time.png"></image>
+        11:00 - 12:00
+      </view>
+    </view>
   </view>
 </view>
-
 
 <view wx:if="{{hasUserInfo}}" wx:for="{{services}}" wx:for-item="service">
+
 <view>{{service.title}}</view>
 <view>{{service.category}}</view>
 <view>{{service.description}}</view>
 <view>{{service.time}}</view>
-<button bindtap = "deleteService" data-id = "{{service.id}}">Delete</button>
-<button bindtap = "editService" data-id = "{{service.id}}">Edit</button>
+<!-- <button bindtap = "deleteService" data-id = "{{service.id}}">Delete</button> -->
+<!-- <button bindtap = "editService" data-id = "{{service.id}}">Edit</button> -->
+
 </view>
+
+<view wx:if='{{services.length < 1}}' style='text-align: center; padding: 30rpx; color: grey;'>You have no classes! How about joining or starting one?</view>

@@ -1,30 +1,16 @@
-<wxs src="../wxs/utils.wxs" module="utils" />
-
-<view
-  class="{{ utils.bem('tabbar-item', { active }) }} custom-class"
-  style="color: {{ active ? activeColor : inactiveColor }}"
-  bind:tap="onClick"
->
-  <view class="{{ utils.bem('tabbar-item__icon', { dot }) }}">
-    <van-icon
-      wx:if="{{ icon }}"
-      name="{{ icon }}"
-      customStyle="display: block"
-    />
-    <block wx:else>
-      <slot
-        wx:if="{{ active }}"
-        name="icon-active"
-      />
-      <slot wx:else name="icon" />
-    </block>
-    <van-info
-      wx:if="{{ info !== null }}"
-      info="{{ info }}"
-      custom-style="margin-top: 2px"
-    />
-  </view>
-  <view class="van-tabbar-item__text">
-    <slot />
-  </view>
+<view class="wux-class {{ classes.wrap }}" style="width: {{ width }}" bindtap="onTap">
+	<view class="{{ classes.icon }}">
+		<block wx:if="{{ current }}">
+			<slot name="icon-off"></slot>
+		</block>
+		<block wx:else>
+			<slot name="icon-on"></slot>
+		</block>
+	</view>
+	<view class="{{ classes.title }}">
+		<text wx:if="{{ title }}">{{ title }}</text>
+	    <block wx:else>
+	        <slot></slot>
+	    </block>
+	</view>
 </view>

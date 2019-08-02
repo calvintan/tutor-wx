@@ -1,8 +1,4 @@
-<wxs src="../wxs/utils.wxs" module="utils" />
-
-<view
-  class="custom-class {{ utils.bem('tag', [size, { mark, plain, round }]) }} {{ plain ? 'van-hairline--surround' : '' }}"
-  style="{{ style }}"
->
-  <slot />
+<view class="wux-class {{ classes.wrap }} {{ className }}" hover-class="{{ classes.hover }}" style="{{ tagStyle }}" bindtap="onClick" wx:if="{{ tagVisible }}">
+    <slot></slot>
+    <view class="{{ classes.icon }}" catchtap="onClose" wx:if="{{ closable }}"></view>
 </view>
