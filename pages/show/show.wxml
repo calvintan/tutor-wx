@@ -30,6 +30,7 @@
     </view>
   </view>
 
+<button bindtap="createBooking" data-id='{{service.id}}'>BOOK</button>
 
 </view>
 
