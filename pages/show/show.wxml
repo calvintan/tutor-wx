@@ -1,17 +1,37 @@
 <view class="banner">
   <text class="banner-intro">{{service.title}}</text>
+  <view class="banner-gradient"></view>
   <image class="banner-image" src="/images/home-banner.jpg"></image>
+  <!-- switch to this url for dynamic banner image -->
+  <!-- https://source.unsplash.com/360x180/?{{service.category}} -->
 </view>
 
-<view class="container">
-  <view class="h2">Class Outline</view>
-  <view class='p'>{{service.description}}</view>
+<view class="container class">
+  <view class="class-desc">{{service.description}}</view>
 
-  <view class="h2">Date and Time</view>
-  <view class='p'>{{service.time}}</view>
+  <view class="box-wrapper">
+    <view class="h2">Date and Time</view>
+    <view class="p">{{service.time}}</view>
 
-  <view class="h2">Location</view>
-  <view class='p'>{{service.location}}</view>
+    <view class="h2">Location</view>
+    <view class="p">{{service.location}}</view>
+  </view>
+  
+  <view class="box-wrapper">
+    <view class="h2">About the tutor</view>
+    <view class="card">
+      <view class="card-image-wrapper">
+        <image class="card-image" src="/images/person-1.jpg"></image>
+      </view>  
+      <view class="card-info">
+        <view class='h2'>Sarah Lynn</view>
+        <view class='p'>Nam condimentum vitae ligula vel ornare. Phasellus at semper turpis. Nunc eu tellus tortor.</view>
+      </view>
+    </view>
+  </view>
+
+<button bindtap="createBooking" data-id='{{service.id}}'>BOOK</button>
+
 </view>
 
 
