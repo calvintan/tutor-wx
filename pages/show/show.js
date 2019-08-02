@@ -90,8 +90,8 @@ Page({
       data: event,
       // data: 
       success() {
-        wx.reLaunch({
-          url: '/pages/profiles/profile',
+        wx.redirectTo({
+          url: '/pages/success/success',
         })
         console.log('success')
       }
