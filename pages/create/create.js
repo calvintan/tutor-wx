@@ -1,4 +1,6 @@
 // pages/create/create.js
+import { $wuxSelect } from '../../dist/index'
+
 const app = getApp()
 const date = new Date()
 const years = []
@@ -28,6 +30,8 @@ Page({
    * Page initial data
    */
   data: {
+    value1: '',
+    title1: '',
     category: [
       { name: "chinese", value: "chinese" },
       { name: "english", value: "english" },
@@ -51,7 +55,21 @@ Page({
     time: date.getHours(),
     value: []
   },
-
+  onClick1() {
+    $wuxSelect('#wux-select1').open({
+      value: this.data.value1,
+      options: ["chinese", "english", "math", "coding", "korean", "science"],
+      onConfirm: (value, index, options) => {
+        console.log('onConfirm', value, index, options)
+        if (index !== -1) {
+          this.setData({
+            value1: value,
+            title1: options[index],
+          })
+        }
+      },
+    })
+  },
   bindChange: function (e) {
     const val = e.detail.value
     this.setData({
