@@ -13,7 +13,6 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-    console.log(options)
     let page = this
     let id = options.id
     wx.request({
@@ -82,7 +81,15 @@ Page({
     const serviceId = e.currentTarget.dataset.id
     const event = {user_id: getApp().globalData.userId}
     console.log('service',this.data.service)
+    this.data.service.show = false
+    console.log('updated service', this.data.service)
+    console.log("show",this.data.service.show)
     // console.log('booking',e)
+    wx.request({
+      url: `http://localhost:3000/api/v1/services/${serviceId}`,
+      method: "PUT",
+      data: this.data.service
+    })
     wx.request({
       url: `http://localhost:3000/api/v1/services/${serviceId}/bookings/`,
       // url: 'https://tutor-app-mp.herokuapp.com/api/v1/services/',
