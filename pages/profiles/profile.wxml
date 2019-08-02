@@ -46,4 +46,4 @@
   <view>{{service.description}}</view>
 </view>
 
-<view wx:if='{{services.length < 1}}' style='text-align: center; padding: 30rpx; color: grey;'>You have no classes! How about joining or starting one?</view>
+<!-- <view wx:if='{{services.length < 1}}' style='text-align: center; padding: 30rpx; color: grey;'>You have no classes! How about joining or starting one?</view> -->
