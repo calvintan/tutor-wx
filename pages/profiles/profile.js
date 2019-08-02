@@ -29,11 +29,20 @@ Page({
   deletebooking(e) {
     let page = this
     const data = e.currentTarget;
-    console.log('data',page.data)
-    console.log('cur',e.currentTarget)
+    // this.data.service.show = true
+    console.log('service', e.currentTarget.dataset)
+    e.currentTarget.dataset.service.show = true
+    console.log('service', e.currentTarget.dataset.service)
+    console.log("e", e.currentTarget)
+    // console.log('booking',e)
+    wx.request({
+      url: `http://localhost:3000/api/v1/services/${e.currentTarget.dataset.serviceid}`,
+      method: "PUT",
+      data: e.currentTarget.dataset.service
+    })
     // make a DELETE request
     wx.request({
-      url: `http://localhost:3000/api/v1/services/${page.data.services[0].id}/bookings/${e.currentTarget.dataset.id}`,
+      url: `http://localhost:3000/api/v1/services/${e.currentTarget.dataset.serviceid}/bookings/${e.currentTarget.dataset.id}`,
       method: 'DELETE',
       success(r) {
         // redirect to index page when done

@@ -32,8 +32,7 @@ Page({
         color: "#000000",
         padding: 10
       }
-    }]
-
+    }];
     wx.request({
       url: `http://localhost:3000/api/v1/services/${id}`,
       // url: `https://tutor-app-mp.herokuapp.com/api/v1/services/${id}`,
@@ -104,7 +103,15 @@ Page({
     const serviceId = e.currentTarget.dataset.id
     const event = {user_id: getApp().globalData.userId}
     console.log('service',this.data.service)
+    this.data.service.show = false
+    console.log('updated service', this.data.service)
+    console.log("show",this.data.service.show)
     // console.log('booking',e)
+    wx.request({
+      url: `http://localhost:3000/api/v1/services/${serviceId}`,
+      method: "PUT",
+      data: this.data.service
+    })
     wx.request({
       url: `http://localhost:3000/api/v1/services/${serviceId}/bookings/`,
       // url: 'https://tutor-app-mp.herokuapp.com/api/v1/services/',
