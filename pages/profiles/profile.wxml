@@ -19,8 +19,11 @@
 </view>
 
 
-<view  wx:if="{{hasUserInfo}}" wx:for="{{services}}" wx:for-item="service">
+<view wx:if="{{hasUserInfo}}" wx:for="{{services}}" wx:for-item="service">
 <view>{{service.title}}</view>
 <view>{{service.category}}</view>
 <view>{{service.description}}</view>
+<view>{{service.time}}</view>
+<button bindtap = "deleteService" data-id = "{{service.id}}">Delete</button>
+<button bindtap = "editService" data-id = "{{service.id}}">Edit</button>
 </view>
