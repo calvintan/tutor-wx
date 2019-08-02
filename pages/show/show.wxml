@@ -15,6 +15,10 @@
 
     <view class="h2">Location</view>
     <view class="p">{{service.location}}</view>
+
+    <view>
+      <map bindmarkertap="markertap" longitude="{{service.longitude}}" latitude="{{service.latitude}}" scale="{{sc}}" style="width: 100%; height: 30vh;" markers="{{mk}}"></map>
+    </view>
   </view>
   
   <view class="box-wrapper">
@@ -29,15 +33,8 @@
       </view>
     </view>
   </view>
-
-<button bindtap="createBooking" data-id='{{service.id}}'>BOOK</button>
-
 </view>
 
-
-<view>
-  <map bindmarkertap="markertap" longitude="{{service.longitude}}" latitude="{{service.latitude}}" scale="{{sc}}" style="width: 100%; height: 40vh;" markers="{{mk}}"></map>
+<view class="btn-book">
+  <wux-button block type="balanced" size="large" bindtap="createBooking" data-id='{{service.id}}'>Book this class</wux-button>
 </view>
-
-
-
