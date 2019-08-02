@@ -69,3 +69,13 @@
   color: #666;
   line-height: 1;
 }
+
+.buttons {
+  font-family: sans-serif;
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttons button {
+  padding: 5px 15px;
+}

@@ -28,7 +28,7 @@
         <image class="card-image" src="/images/person-1.jpg"></image>
       </view>  
       <view class="card-info">
-        <view class='h2'>Sarah Lynn</view>
+        <view class='h2'>{{service.user_id}}</view>
         <view class='p'>Nam condimentum vitae ligula vel ornare. Phasellus at semper turpis. Nunc eu tellus tortor.</view>
       </view>
     </view>

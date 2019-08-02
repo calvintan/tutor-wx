@@ -29,12 +29,12 @@
         <view class="card-dt">
           <view class="card-dt-item">
             <image class="card-icon" src="/images/icon-date.png"></image>
-            01 August 2019
+            {{service.time}}
           </view>
-          <view class="card-dt-item">
+          <!-- <view class="card-dt-item">
             <image class="card-icon" src="/images/icon-time.png"></image>
             11:00 - 12:00
-          </view>
+          </view> -->
         </view>
       </view>
     </view>
