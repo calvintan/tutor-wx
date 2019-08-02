@@ -80,10 +80,11 @@ Page({
         success: function (res) {
           console.log("services", res.data.services);
           const services = res.data.services;
-
+          const bookings = res.data.bookings;
           // Update local data
           page.setData({
-            services: services
+            services: services,
+            bookings: bookings
           });
         }
       })
