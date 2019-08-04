@@ -157,7 +157,7 @@ Page({
       data: event,
       success() {
         wx.reLaunch({
-          url: '/pages/profiles/profile',
+          url: '/pages/success/success',
         })
       }
     })

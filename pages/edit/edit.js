@@ -180,13 +180,13 @@ Page({
     console.log("event", event)
     console.log("service",this.data.service)
     wx.request({
-      url: `http://localhost:3000/api/v1/services/${this.data.service.id} `,
-      // url: 'https://tutor-app-mp.herokuapp.com/api/v1/services/${id}',
+      // url: `http://localhost:3000/api/v1/services/${this.data.service.id} `,
+      url: `https://tutor-app-mp.herokuapp.com/api/v1/services/${this.data.service.id}`,
       method: "PUT",
       data: event,
       success() {
         wx.reLaunch({
-          url: '/pages/profiles/profile',
+          url: '/pages/success/success',
         })
       }
     })
