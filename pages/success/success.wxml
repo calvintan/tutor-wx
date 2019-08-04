@@ -1,2 +1,8 @@
-<text>You have successfully booked!</text>
-<button bindtap="back">Back to all topics</button>
+<view class="success">
+  <!-- <image src="/images/success.png"></image> -->
+  <icon type="success" size="80" color="green"/>
+
+  <view class="text">You have successfully booked!</view>
+  <button bindtap="back">Back to all topics</button>
+
+</view>

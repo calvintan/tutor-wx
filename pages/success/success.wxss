@@ -1,1 +1,13 @@
 /* pages/success/success.wxss */
+page {
+  background: #fff;
+}
+
+.success {
+  text-align: center;
+  margin-top: 100px;
+}
+
+.success .text {
+  margin-bottom: 10px;
+}
