@@ -6,7 +6,7 @@
 <swiper class="slider" indicator-dots="{{indicatorDots}}"
   autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
   <swiper-item>
-    <image src="/images/home-banner.jpg" class="slide-image" />
+    <image src="/images/home-banner-1.jpg" class="slide-image" />
   </swiper-item>
 
   <swiper-item>
