@@ -46,12 +46,22 @@
 </view>
 
 <view wx:if="{{hasUserInfo}}" wx:for="{{bookings}}" wx:for-item="booking">
-  <view>Booking {{booking.id}}</view>
-  <view>Confirmed: {{booking.confirmed}}</view>
-  <view>Booked_service: {{booking.service.title}}</view>
-  <button bindtap="deletebooking" data-id = "{{booking.id}}" data-serviceid="{{booking.service.id}}" data-service="{{booking.service}}">Delete This booking</button>
+  <view class="card">
+    <view class="card-image-wrapper">
+      <image class="card-image" src="/images/person-4.jpg"></image>
+    </view>
+    <view class="card-info">
+      <view class='h2'>{{booking.service.title}}</view>
+      <view class="card-dt">
+        <view class="card-dt-item">
+          <image class="card-icon" src="/images/icon-date.png"></image>
+          {{booking.service.time}}
+        </view>
+      </view>
+      <view class="buttons">
+        <wux-button bindtap="deletebooking" data-id = "{{booking.id}}" data-serviceid="{{booking.service.id}}" data-service="{{booking.service}}" block type="assertive" size="small">Delete this booking</wux-button>
+      </view>
+    </view>
+  </view>
 </view>
 
-
-
-<view wx:if='{{services.length < 1}}' style='text-align: center; padding: 30rpx; color: grey;'>You have no classes! How about joining or starting one?</view>
